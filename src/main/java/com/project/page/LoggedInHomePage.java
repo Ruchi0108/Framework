@@ -12,8 +12,6 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class LoggedInHomePage extends LoggedInHomePage_OR {
 
-    static String mainArticleText;
-
     WebDriver driver;
     DriverManager driverManager;
 
@@ -33,37 +31,6 @@ public class LoggedInHomePage extends LoggedInHomePage_OR {
     public String getLoggedInUser() {
         String user = loggedInUserName.getText();
         return user;
-    }
-
-    public MediaPage clickMainArticle() {
-        try {
-            mainArticleLink.click();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return new MediaPage(driver);
-    }
-
-    public String getMainArticleHeading() {
-        mainArticleText = mainArticleLink.getAttribute("title");
-        return mainArticleText;
-    }
-
-    public boolean isImagePresent() {
-        String imageLink = null;
-        try {
-            imageLink = imageSrcLink.getAttribute("src");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-        if (imageLink != null) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public void clickLogout(){

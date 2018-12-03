@@ -60,8 +60,31 @@ public class HomePage extends HomePage_OR {
         return new LoginPage(driver);
     }
 
+    public MediaPage clickOnMainArticle() {
+
+        String mainArticleText = null;
+        try {
+            mainArticleText = mainArticleLink.getAttribute("title");
+            driverManager.javascriptClick(mainArticleLink);
+
+        } catch (WebDriverException e) {
+            throw new IllegalStateException("Main article did not show up as expected.");
+        }
+        return new MediaPage(driver, mainArticleText);
+    }
+
     public String getLoginLinkText(){
        return loginButton.getText();
     }
 
+    public boolean isImagePresent() {
+        String imageLink = null;
+        try {
+            imageLink = imageSrcLink.getAttribute("src");
+        } catch (WebDriverException e) {
+            e.printStackTrace();
+
+        }
+        return imageLink != null;
+    }
 }

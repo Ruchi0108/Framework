@@ -17,5 +17,9 @@ public class HomePage_OR {
     @FindBy (xpath = "//div[contains(@class,'celtra-screen')]//div[contains(@style,'close-btn')]/following::div | //button[contains(@id,'close-button')]")
     protected WebElement closeAd;
 
+    @FindBy(xpath = "//div[contains(@class,'featured-story')]//div[contains(@class,'id-topstory')]//a[contains(@class,'block-link')]")
+    protected WebElement mainArticleLink;
 
+    @FindBy(xpath = "//div[contains(@class,'featured-story')]//div[contains(@class,'id-topstory')]//div[contains(@class,'file-image-jpeg')]//img")
+    protected WebElement imageSrcLink;
 }

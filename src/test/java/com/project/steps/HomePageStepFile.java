@@ -36,4 +36,18 @@ public class HomePageStepFile extends BaseSteps {
         System.out.println("User is on HomePage");
     }
 
+    @Then("^Verify main article has Image$")
+    public void main_article_has_Image() {
+        Assert.assertTrue(homePage.isImagePresent());
+    }
+
+    @Then("^Verify main article in the media page has Image$")
+    public void main_article_has_Image_in_media_page() {
+        Assert.assertTrue(mediaPage.isImagePresent());
+    }
+
+    @Then("^User clicks on the main article and validate the main article media page$")
+    public void navigate_to_main_article() {
+        mediaPage = homePage.clickOnMainArticle();
+    }
 }
